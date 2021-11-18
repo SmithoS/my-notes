@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>温泉むすめ　声優の他作品出演情報</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/basestyles.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./js/data/musume.js"></script>
+  
+</head>
+<body>
+<div id="app">
+    <header class="page-header">
+        <h1>温泉むすめ　声優の他作品出演情報</h1>
+    </header>
+    <div>
+        <div class="pageDescription">
+            <p>
+                温泉むすめの一覧と、担当声優の他作品への出演情報です。<br />
+                この一覧は、各作品のファンのかたが「自分がファンの作品の声優が担当している温泉むすめ」が誰なのか調べて、それをきっかけに温泉地に興味を持つような平和的な利用をされることを望んでいます。
+            </p>
+        </div>
+        <div class="filter">
+            <p>担当声優の他作品への出演で絞り込み</p>
+            <div>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="llcv" v-model="filterTarget.llcv" v-on:change="changeList()" />
+                        <label for="llcv">ラブライブ！</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="umacv" v-model="filterTarget.umacv" v-on:change="changeList()" />
+                        <label for="umacv">ウマ娘</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="deremasucv" v-model="filterTarget.deremasucv" v-on:change="changeList()" />
+                        <label for="deremasucv">デレマス</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="mirisitacv" v-model="filterTarget.mirisitacv" v-on:change="changeList()" />
+                        <label for="mirisitacv">ミリシタ</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="shanimasucv" v-model="filterTarget.shanimasucv" v-on:change="changeList()" />
+                        <label for="shanimasucv">シャニマス</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="bandoricv" v-model="filterTarget.bandoricv" v-on:change="changeList()" />
+                        <label for="bandoricv">バンドリ</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="starlightcv" v-model="filterTarget.starlightcv" v-on:change="changeList()" />
+                        <label for="starlightcv">スタァライト</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="asarutocv" v-model="filterTarget.asarutocv" v-on:change="changeList()" />
+                        <label for="asarutocv">アサルトリリィ</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="d4djcv" v-model="filterTarget.d4djcv" v-on:change="changeList()" />
+                        <label for="d4djcv">グルミク</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>都道府県</th>
+                        <th>名前</th>
+                        <th>CV</th>
+                        <th>他作品での担当</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(m, idx) of musumes">
+                        <td>{{ m.place }}</td>
+                        <td>
+                            <a v-bind:href="getMusumeUrl(m.url)" target="_blank">
+                                {{ m.name }}
+                            </a>
+                        </td>
+                        <td>{{ m.cv }}</td>
+                        <td>
+                            <ul>
+                                <li v-if="m.llcv != ''" >ラブライブ：{{ m.llcv }}</li>
+                                <li v-if="m.umacv != ''" >ウマ娘：{{ m.umacv }}</li>
+                                <li v-if="m.deremasucv != ''" >デレマス：{{ m.deremasucv }}</li>
+                                <li v-if="m.mirisitacv != ''" >ミリシタ：{{ m.mirisitacv }}</li>
+                                <li v-if="m.shanimasucv != ''" >シャニマス：{{ m.shanimasucv }}</li>
+                                <li v-if="m.bandoricv != ''" >バンドリ：{{ m.bandoricv }}</li>
+                                <li v-if="m.starlightcv != ''" >スタァライト：{{ m.starlightcv }}</li>
+                                <li v-if="m.asarutocv != ''" >アサルトリリィ：{{ m.asarutocv }}</li>
+                                <li v-if="m.d4djcv != ''" >グルミク：{{ m.d4djcv }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="annotation">
+            <p>
+                この一覧は「2021/11/18」に作成したものです。
+            </p>
+            <p>
+                記載内容に抜け、間違いがあった場合は優しく教えて下さい。
+            </p>
+        </div>
+    </div>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

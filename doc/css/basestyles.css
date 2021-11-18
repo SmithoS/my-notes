@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+ }
+
+header {
+    width: 100%;
+    padding: 30px 4% 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+h1 {
+    margin: 0;
+}
+nav {
+    margin: 0 0 0 auto;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+}
+
+.pageDescription {
+    padding: 15px 40px;
+}
+
+.filter {
+    padding: 15px 40px;
+    text-align: center;
+}
+.filter ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.filter li {
+    margin: 12px 0 12px 17px;
+    font-size: 14px;
+}
+.filter input[type="checkbox"] {
+    display: none;
+}
+.filter input[type="checkbox"] + label {
+    border-radius: 20px;
+    padding: 4px 10px;
+}
+.filter input[type="checkbox"] + label.mujirushi {
+    border: 1px solid rgb(242, 0, 181);
+}
+.filter input[type="checkbox"] + label.sunshine {
+    border: 1px solid rgb(0, 152, 240);
+}
+.filter input[type="checkbox"] + label.nijigaku {
+    border: 1px solid rgb(255, 148, 0);
+}
+.filter input[type="checkbox"] + label.superstar {
+    border: 1px solid rgb(153, 51, 153);
+}
+.filter input[type="checkbox"] + label.sukufesu {
+    border: 1px solid rgb(48, 185, 35);
+}
+.filter input[type="checkbox"] + label.allstars {
+    border: 1px solid rgb(48, 185, 35);
+}
+
+.filter input[type="checkbox"]:checked + label.mujirushi {
+    color: white;
+    background-color: rgb(242, 0, 181);
+}
+.filter input[type="checkbox"]:checked + label.sunshine {
+    color: white;
+    background-color: rgb(0, 152, 240);
+}
+.filter input[type="checkbox"]:checked + label.nijigaku {
+    color: white;
+    background-color: rgb(255, 148, 0);
+}
+.filter input[type="checkbox"]:checked + label.superstar {
+    color: white;
+    background-color: rgb(153, 51, 153);
+}
+.filter input[type="checkbox"]:checked + label.sukufesu {
+    color: white;
+    background-color: rgb(48, 185, 35);
+}
+.filter input[type="checkbox"]:checked + label.allstars {
+    color: white;
+    background-color: rgb(48, 185, 35);
+}
+
+.annotation {
+    padding: 15px 40px;
+    text-align: left;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+table tr{
+    border-bottom: 1px solid #cccccc;
+} 
+table thead tr{
+    background-color: #eeeeee;
+}
+table thead th{
+    cursor: pointer;
+}
+table tbody tr:hover{
+    background-color: #d4f0fd;
+}
+table th,
+table td {
+    text-align: center;
+    padding: 15px 0;
+    text-align: left;
+    padding-left: 20px;
+}
+table td.color {
+    position: relative;
+    padding-left: 30px;
+}
+table td.color .colorCircle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto 0;
+}
