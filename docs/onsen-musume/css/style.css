@@ -4,6 +4,7 @@ header {
     border-bottom: 7px solid #a09bdc;
 }
 
+
 .filter input[type=checkbox] + label:before {
     font-family: FontAwesome;
     display: inline-block;
@@ -37,3 +38,6 @@ header {
 .list ul li {
     margin: 5px 0;
 }
+.list table tr{
+    border-bottom: 1px solid #cccccc;
+} 

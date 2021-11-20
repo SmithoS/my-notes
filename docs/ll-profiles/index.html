@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ラブライブシリーズ　登場スクールアイドル</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basestyles.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script src="./js/class/color.js"></script>
+  <script src="./js/component/home.js"></script>
+  <script src="./js/component/unit.js"></script>
+  <script src="./js/component/school.js"></script>
+  <script src="./js/data/profiles.js"></script>
+  <script src="./js/data/groups.js"></script>
+  <script src="./js/data/schools.js"></script>
+</head>
+<body>
+<div id="app">
+    <header class="page-header">
+        <h1>スクールアイドル情報</h1>
+        <nav class="nav">
+            <ul class="menu-group">
+                <li class="menu-item"><router-link v-bind:to="{ name : 'home' }">スクールアイドル</router-link></li>
+                <li class="menu-item"><router-link v-bind:to="{ name : 'unit' }">ユニット</router-link></li>
+                <li class="menu-item"><router-link v-bind:to="{ name : 'school' }">学校</router-link></li>
+            </ul>
+        </nav>
+    </header>
+    <transition>
+        <router-view />
+    </transition>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+header {
+    border-bottom: 7px solid rgb(242, 0, 181);
+}
+
+.filter input[type="checkbox"] + label.mujirushi {
+    border: 1px solid rgb(242, 0, 181);
+}
+.filter input[type="checkbox"] + label.sunshine {
+    border: 1px solid rgb(0, 152, 240);
+}
+.filter input[type="checkbox"] + label.nijigaku {
+    border: 1px solid rgb(255, 148, 0);
+}
+.filter input[type="checkbox"] + label.superstar {
+    border: 1px solid rgb(153, 51, 153);
+}
+.filter input[type="checkbox"] + label.sukufesu {
+    border: 1px solid rgb(48, 185, 35);
+}
+.filter input[type="checkbox"] + label.allstars {
+    border: 1px solid rgb(48, 185, 35);
+}
+
+.filter input[type="checkbox"]:checked + label.mujirushi {
+    color: white;
+    background-color: rgb(242, 0, 181);
+}
+.filter input[type="checkbox"]:checked + label.sunshine {
+    color: white;
+    background-color: rgb(0, 152, 240);
+}
+.filter input[type="checkbox"]:checked + label.nijigaku {
+    color: white;
+    background-color: rgb(255, 148, 0);
+}
+.filter input[type="checkbox"]:checked + label.superstar {
+    color: white;
+    background-color: rgb(153, 51, 153);
+}
+.filter input[type="checkbox"]:checked + label.sukufesu {
+    color: white;
+    background-color: rgb(48, 185, 35);
+}
+.filter input[type="checkbox"]:checked + label.allstars {
+    color: white;
+    background-color: rgb(48, 185, 35);
+}
+
+.filter input[type="radio"] {
+    display: none;
+}
+.filter input[type="radio"] + label {
+    padding: 4px 10px 4px 30px;
+    position: relative;
+    color: #aaaaaa;
+}
+.filter input[type="radio"] + label::before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid #aaaaaa;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.filter input[type="radio"] + label::after {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: black;
+    left: 3px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    opacity: 0;
+}
+.filter input[type="radio"]:checked + label {
+    color: black;
+}
+.filter input[type="radio"]:checked + label::before {
+    border-color: black;
+}
+.filter input[type="radio"]:checked + label::after {
+    opacity: 1;
+}
+
+.list table tr {
+    border-bottom: 1px solid #cccccc;
+} 

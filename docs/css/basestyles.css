@@ -72,9 +72,6 @@ table {
     border-spacing: 0;
     width: 100%;
 }
-.list table tr{
-    border-bottom: 1px solid #cccccc;
-} 
 table thead tr{
     background-color: #eeeeee;
 }
