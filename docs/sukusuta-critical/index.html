@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/basestyles.css">
+    <link rel="stylesheet" href="./css/main.css" />      
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <header class="page-header">
+        <h1>スクスタ　クリティカル確率計算</h1>
+    </header>
+    <div>
+        <div class="pageDescription">
+            <p>
+                クリティカル確率の計算方法については<a href="https://unisif.gitbook.io/sifas-deep-dive/">スクスタDeep Dive! 様</a>を参照しています。
+
+            </p>
+        </div>
+        
+        <div class="members">
+            <div v-for="member in members">
+                <dl>
+                    <dt>{{ member.name }}</dt>
+                    <dd>
+                        <span>テクニック値</span>
+                        <button @click="showBaloon(1)">？</button><br />
+                        <input v-model="member.technique" type="number" class="technique" v-on:change="calcCriticalPercent" />
+                    </dd>
+                    <dd>
+                        <span>属性一致</span>
+                        <button @click="showBaloon(2)">？</button><br />
+                        <input v-model="member.matchAttribute" type="checkbox" v-on:change="calcCriticalPercent" />
+                    </dd>
+                    <dd>
+                        <span>絆ボード（一致補正）</span>
+                        <button @click="showBaloon(3)">？</button><br />
+                        <input v-model="member.bordAttributeBounus" type="number" class="percent" v-on:change="calcCriticalPercent" />％
+                    </dd>
+                    <dd>
+                        <span>絆ボード（クリティカル補正）</span>
+                        <button @click="showBaloon(4)">？</button><br />
+                        <input v-model="member.boardCriticalBounus" type="number" class="percent" v-on:change="calcCriticalPercent" />％
+                    </dd>
+                    <dd>
+                        <span>クリティカルセンス</span>
+                        <button @click="showBaloon(5)">？</button><br />
+                        <input v-model="member.criticalSence" type="checkbox" v-on:change="calcCriticalPercent" />
+                    </dd>
+                    <dd>
+                        <span>クリティカル率</span>
+                        <br />
+                        <span class="criticalPercent">{{ member.calcCriticalPercent }}％</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div id="baloonBack" v-show="baloon.isShow" v-on:click="closeBaloon"></div>
+    <div id="baloon" v-show="baloon.isShow">
+        <p>{{ baloon.title }}</p>
+        <p>{{ baloon.body }}</p>
+        <p>{{ baloon.how }}</p>
+        <button v-on:click="closeBaloon">閉じる</button>
+    </div>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

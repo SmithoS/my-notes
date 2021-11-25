@@ -1,0 +1,63 @@
+header {
+    border-bottom: 7px solid #a09bdc;
+}
+
+.members > div {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px gray;
+    margin: 10px;
+    padding: 10px;
+}
+dd {
+    margin: 20px 0;
+}
+dd input {
+    margin-left: 50px;
+}
+dd input[type="number"] {
+    text-align: right;
+}
+dd input.technique {
+    width: 5em;
+}
+dd input.percent {
+    width: 4em;
+}
+dd button {
+    padding: 5px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    font-size: 60%;
+}
+dd .criticalPercent {
+    font-size: 150%;
+    margin-left: 50px;
+}
+
+
+#baloonBack {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    opacity: 0.5;
+    z-index: 99;
+}
+#baloon {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 30px;
+    border-radius: 30px;
+    border: 2px solid #cccccc;
+    background-color: white;
+    z-index: 100;
+}
