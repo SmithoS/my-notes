@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>音ゲー楽曲選択風UI</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/basestyles.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="wrap">
+<div id="app">
+    <div class="menuWrap">
+        <div class="menu">
+            <div class="movebtn up" v-on:click="moveMenu(1)">
+                <span>↑</span>
+            </div>
+            <div class="movebtn down" v-on:click="moveMenu(-1)">
+                <span>↓</span>
+            </div>
+            <div class="movebtnSeparator">&nbsp</div>
+            <div v-for="itm of list"
+                class="item"
+                v-bind:style="'--i:' + itm.index + ';'"
+                v-bind:class="itm.index <= 4 || 12 <= itm.index ? 'next': itm.isSelect ? 'selected' : ''">
+                <span>
+                    {{ itm.name }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="selectContent">
+        <div class="selectContentArea">
+            <h1 v-bind:class="newSelectItem.id % 2 == 0 ? 'old': 'new'">
+                {{ newSelectItem.id % 2 == 0 ? oldSelectItem.name : newSelectItem.name }}
+            </h1>
+            <h1 v-bind:class="newSelectItem.id % 2 == 0 ? 'new': 'old'">
+                {{ newSelectItem.id % 2 == 0 ? newSelectItem.name : oldSelectItem.name }}
+            </h1>
+            <div v-bind:class="newSelectItem.id % 2 == 0 ? 'old': 'new'">
+                <span class="jacket">ジャケット</span>
+                <div class="description">
+                    {{ newSelectItem.id % 2 == 0 ? oldSelectItem.releaseDate : newSelectItem.releaseDate }} Release
+                    <ul>
+                        <li v-for="song of newSelectItem.id % 2 == 0 ? oldSelectItem.songs : newSelectItem.songs">
+                            {{ song }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div v-bind:class="newSelectItem.id % 2 == 0 ? 'new': 'old'">
+                <span class="jacket">ジャケット</span>
+                <div class="description">
+                    {{ newSelectItem.id % 2 == 0 ? newSelectItem.releaseDate : oldSelectItem.releaseDate }} Release
+                    <ul>
+                        <li v-for="song of newSelectItem.id % 2 == 0 ? newSelectItem.songs : oldSelectItem.songs">
+                            {{ song }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

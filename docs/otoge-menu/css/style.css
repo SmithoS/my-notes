@@ -1,0 +1,204 @@
+:root {
+    --menu-animation-time-sec: 1s;
+    --selectItem-animation-time-sec: 0.5s;
+    --base-color: #D5EBE7;
+    --menu-select-color:#FAFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+#wrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: gray;
+}
+#app {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    background-color: var(--base-color);
+}
+.menuWrap {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height:400px;
+}
+
+.movebtn {
+    position: absolute;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    background-color: var(--menu-select-color);
+    cursor: pointer;
+}
+
+.movebtn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--base-color);
+    z-index: 100;
+}
+.movebtn.up {
+    bottom: 50%;
+    border-radius: 0 80px 0 0;
+}
+.movebtn.up::after {
+    bottom: 0;
+    border-radius: 0 50px 0 0;
+}
+.movebtn.down {
+    top: 50%;
+    border-radius: 0 0 80px 0;
+}
+.movebtn.down::after {
+    top: 0;
+    border-radius: 0 0 50px 0;
+}
+.movebtn > span {
+    position: absolute;
+    left: 45%;
+}
+.movebtn.up > span {
+    bottom: 50%;
+    transform: rotate(-45deg);
+}
+.movebtn.down > span {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.movebtnSeparator {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 90px;
+    left: 0;
+    top: calc(50% - 5px);
+    background-color: var(--base-color);
+    z-index: 100;
+}
+
+.menu .item {
+    position: absolute;
+    transform-origin: 320px;
+    left: -260px;
+    transition: var(--menu-animation-time-sec);
+    transform: rotate(calc(360deg / 16 * var(--i)));
+    height: 30px;
+}
+.menu .item.next {
+    opacity: 0;
+}
+.menu .item.selected {
+    height: 50px;
+}
+
+.menu .item span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 100%;
+    padding: 0 10px; 
+    transition: var(--menu-animation-time-sec);
+    transform: rotate(calc(360deg / -16 * var(--i)));
+    background-color: var(--menu-select-color);
+    border: 1px solid #aaaaaa;
+    border-radius: 20px;
+}
+.menu .item.selected span {
+    font-size: 140%;
+}
+
+
+.selectContent {
+    height: 100%;
+    padding: 20px 0 20px 400px;
+    overflow: hidden;
+}
+.selectContent .selectContentArea {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.selectContentArea h1 {
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+    border-left: 1px solid #a0a0a0;
+    box-shadow: 2px 2px 2px #a0a0a0;
+    position: absolute;
+    transition: var(--selectItem-animation-time-sec);
+    z-index: 100;
+    background-color: var(--menu-select-color);
+}
+.selectContentArea h1.old {
+    left: 100%;
+    opacity: 0;
+}
+.selectContentArea h1.new {
+    left: 0;
+    opacity: 1;
+}
+.selectContentArea > div {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    height: calc(100% - 70px);
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+    border-left: 1px solid #a0a0a0;
+    box-shadow: 2px 2px 1px #a0a0a0;
+    transition: var(--selectItem-animation-time-sec);
+    overflow: hidden;
+    background-color: var(--menu-select-color);
+}
+.selectContentArea > div.old {
+    opacity: 0;
+}
+.selectContentArea > div.new {
+    opacity: 1;
+}
+/*
+.selectContentArea > div img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 170px;
+    height: auto;
+    border: 1px solid gray;
+}
+*/
+.selectContentArea > div .jacket {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 170px;
+    height: 170px;
+    border: 1px solid gray;
+}
+.selectContentArea > div .description {
+    padding: 20px 0 20px 200px;
+}
+.selectContentArea > div .description ul {
+    list-style: none;
+    padding-left: 20px;
+}
